@@ -2,11 +2,16 @@ import logging
 import os
 from datetime import datetime
 
+# Get project root directory (one level above src)
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..")
+)
+
 # Create log file name with timestamp
 LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 
-# Create logs directory path
-logs_path = os.path.join(os.getcwd(), "logs")
+# Create logs directory at project root
+logs_path = os.path.join(PROJECT_ROOT, "logs")
 os.makedirs(logs_path, exist_ok=True)
 
 # Full log file path
